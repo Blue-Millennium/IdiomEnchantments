@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.ksmcbrigade.ie.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "ie.refmap.json",
+  "mixins": [
+    "AbstractArrowMixin",
+    "BowMixin",
+    "CrossBowMixin",
+    "PlayerMixin",
+    "TotemTriggerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
