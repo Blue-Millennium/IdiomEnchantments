@@ -1,6 +1,5 @@
 package cn.ksmcbrigade.ie;
 
-import net.minecraft.client.renderer.EffectInstance;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,13 +26,15 @@ public class IdiomEnchantment {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @SubscribeEvent
-    public static void onEntityAttack(LivingHurtEvent event) {
-        if (EnchantmentHelper.getEnchantmentLevel(EnchantmentsRegistry.I.get(), event.getEntity()) > 0) {
-            LivingEntity entity = event.getEntity();
-            entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 2));
-        }
-    }
+   @SubscribeEvent
+   public static void onEntityAttack(LivingHurtEvent event) {
+       LivingEntity entity = event.getEntity();
+       float originalAmount = event.getAmount();
+       if (originalAmount > 2.0f) { //忽略低于两点的更改
+           event.setAmount(2.0f); // 高于两点则固定伤害为2点
+       }
+   }
+
 
 
     @SubscribeEvent
