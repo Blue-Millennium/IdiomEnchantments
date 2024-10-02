@@ -1,7 +1,9 @@
 package cn.ksmcbrigade.ie;
 
+import net.minecraft.client.renderer.EffectInstance;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
@@ -26,11 +28,13 @@ public class IdiomEnchantment {
     }
 
     @SubscribeEvent
-    public static void onEntityAttack(LivingHurtEvent event){
-        if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsRegistry.I.get(),event.getEntity())>0){
-            event.setCanceled(true);
+    public static void onEntityAttack(LivingHurtEvent event) {
+        if (EnchantmentHelper.getEnchantmentLevel(EnchantmentsRegistry.I.get(), event.getEntity()) > 0) {
+            LivingEntity entity = event.getEntity();
+            entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 2));
         }
     }
+
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event){
