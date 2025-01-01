@@ -3,6 +3,7 @@ package cn.ksmcbrigade.ie.enchantments;
 import cn.ksmcbrigade.ie.enchantment.IdiomEnchantment;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player; // 导入 Player 类
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.AABB;
@@ -11,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class KillAll extends Enchantment {
 
     public KillAll() {
-        super(Rarity.UNCOMMON,EnchantmentCategory.VANISHABLE, IdiomEnchantment.MAIN_OFF);
+        super(Rarity.UNCOMMON, EnchantmentCategory.VANISHABLE, IdiomEnchantment.MAIN_OFF);
     }
 
     @Override
@@ -21,11 +22,12 @@ public class KillAll extends Enchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int level) {
-        if(level>0){
-            p_44686_.level().getEntitiesOfClass(Entity.class,new AABB(p_44686_.position(),p_44686_.position()).inflate(level*4D)).stream()
-                    .filter(e -> e.getId()!=p_44686_.getId())
+        if (level > 0) {
+            p_44686_.level().getEntitiesOfClass(Entity.class, new AABB(p_44686_.position(), p_44686_.position()).inflate(8D)).stream()
+                    .filter(e -> e.getId() != p_44686_.getId())
+                    .filter(e -> !(e instanceof Player)) // 排除玩家实体
                     .filter(e -> e.getType().equals(p_44687_.getType()))
-                    .forEach(Entity::kill);
+                    .forEach(entity -> { entity.hurt(p_44686_.damageSources().magic(), level * 12); });
         }
     }
 }
