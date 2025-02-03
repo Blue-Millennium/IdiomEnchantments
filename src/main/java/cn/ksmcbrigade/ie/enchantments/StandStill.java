@@ -1,11 +1,14 @@
 package cn.ksmcbrigade.ie.enchantments;
 
 import cn.ksmcbrigade.ie.enchantment.IdiomEnchantment;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
+
+import static java.lang.Math.min;
 
 public class StandStill extends IdiomEnchantment {
     public StandStill() {
@@ -18,15 +21,19 @@ public class StandStill extends IdiomEnchantment {
     }
 
     @Override
-    public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int level) {
-        if(level>0){
-            new Thread(()->{
-                long start = System.currentTimeMillis();
-                Vec3 pos = p_44687_.getPosition(0);
-                while (System.currentTimeMillis()-start <= level*3000L){
-                    p_44687_.setPos(pos);
-                }
-            }).start();
+    public void doPostAttack(@NotNull LivingEntity attacker, @NotNull Entity target, int level) {
+        if (level > 0) {
+            int duration = 5 * 20;
+            if (level == 4) {
+                duration = 10 * 20;
+            } else if (level == 5) {
+                duration = 15 * 20;
+            }
+            int amplifier = min(level - 1, 2);
+            MobEffectInstance slowEffect = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, duration, amplifier);
+            if (target instanceof LivingEntity livingTarget) {
+                livingTarget.addEffect(slowEffect);
+            }
         }
     }
 }
