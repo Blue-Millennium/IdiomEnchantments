@@ -14,9 +14,9 @@ public class Mingle extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int p_44688_) {
-        if(p_44688_>0){
+        if (p_44688_ > 0) {
             Vec3 vec3 = p_44687_.getPosition(0);
-            p_44686_.teleportTo(vec3.x,vec3.y,vec3.z);
+            p_44686_.teleportTo(vec3.x, vec3.y, vec3.z);
         }
 
     }

@@ -20,8 +20,8 @@ public class DFJP extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int level) {
-        if((p_44687_ instanceof Player target) && (p_44686_ instanceof Player player) && level>0){
-            int value = target.totalExperience % (20*level);
+        if ((p_44687_ instanceof Player target) && (p_44686_ instanceof Player player) && level > 0) {
+            int value = target.totalExperience % (20 * level);
             target.giveExperiencePoints(-value);
             player.giveExperiencePoints(value);
         }

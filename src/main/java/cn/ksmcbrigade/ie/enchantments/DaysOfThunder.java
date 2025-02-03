@@ -15,8 +15,8 @@ public class DaysOfThunder extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int level) {
-        if(level>0){
-            LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT,p_44687_.level());
+        if (level > 0) {
+            LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT, p_44687_.level());
             lightningBolt.setPos(p_44687_.getPosition(0));
             p_44687_.level().addFreshEntity(lightningBolt);
         }

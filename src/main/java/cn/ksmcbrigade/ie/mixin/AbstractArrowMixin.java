@@ -23,23 +23,23 @@ public abstract class AbstractArrowMixin extends Projectile implements AbstractA
         super(p_37248_, p_37249_);
     }
 
-    @Redirect(method = "tick",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
-    public void particle(Level instance, ParticleOptions p_46631_, double p_46632_, double p_46633_, double p_46634_, double p_46635_, double p_46636_, double p_46637_){
-        if(!this.inv){
+    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
+    public void particle(Level instance, ParticleOptions p_46631_, double p_46632_, double p_46633_, double p_46634_, double p_46635_, double p_46636_, double p_46637_) {
+        if (!this.inv) {
             instance.addParticle(p_46631_, p_46632_, p_46633_, p_46634_, p_46635_, p_46636_, p_46637_);
         }
     }
 
-    @Inject(method = {"onHitBlock","onHitEntity"},at = @At(value = "HEAD"))
-    public void hit(CallbackInfo ci){
-        if(tp && this.getOwner()!=null){
+    @Inject(method = {"onHitBlock", "onHitEntity"}, at = @At(value = "HEAD"))
+    public void hit(CallbackInfo ci) {
+        if (tp && this.getOwner() != null) {
             Vec3 vec3 = this.getPosition(0);
-            this.getOwner().teleportTo(vec3.x,vec3.y,vec3.z);
+            this.getOwner().teleportTo(vec3.x, vec3.y, vec3.z);
         }
     }
 
     @Override
-    public void set(boolean inv){
+    public void set(boolean inv) {
         this.inv = inv;
     }
 

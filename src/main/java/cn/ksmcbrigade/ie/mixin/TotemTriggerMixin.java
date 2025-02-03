@@ -13,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(UsedTotemTrigger.class)
 public class TotemTriggerMixin {
-    @Inject(method = "trigger",at = @At("TAIL"))
-    public void trigger(ServerPlayer p_74432_, ItemStack p_74433_, CallbackInfo ci){
-        if(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentsRegistry.ND.get(),p_74433_)>0){
+    @Inject(method = "trigger", at = @At("TAIL"))
+    public void trigger(ServerPlayer p_74432_, ItemStack p_74433_, CallbackInfo ci) {
+        if (EnchantmentHelper.getItemEnchantmentLevel(EnchantmentsRegistry.ND.get(), p_74433_) > 0) {
             p_74432_.addItem(Items.TOTEM_OF_UNDYING.getDefaultInstance());
         }
     }

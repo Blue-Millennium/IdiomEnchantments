@@ -19,11 +19,11 @@ public class AdvisingtThe extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int p_44688_) {
-        if(p_44688_>0){
-            new Thread(()->{
+        if (p_44688_ > 0) {
+            new Thread(() -> {
                 long start = System.currentTimeMillis();
                 Vec3 pos = p_44687_.getPosition(0);
-                while (System.currentTimeMillis()-start <= p_44688_*3000L){
+                while (System.currentTimeMillis() - start <= p_44688_ * 3000L) {
                     p_44686_.setPos(pos);
                 }
             }).start();

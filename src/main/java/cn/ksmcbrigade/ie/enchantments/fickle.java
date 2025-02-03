@@ -17,6 +17,6 @@ public class fickle extends IdiomEnchantment {
 
     @Override
     public float getDamageBonus(int level, MobType mobType, ItemStack enchantedItem) {
-            return random.nextFloat(-100F,100F);
+        return random.nextFloat(-100F, 100F);
     }
 }

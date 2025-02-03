@@ -6,9 +6,9 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 public class IdiomEnchantment extends Enchantment {
 
-    public static EquipmentSlot[] MAIN_OFF = new EquipmentSlot[]{EquipmentSlot.MAINHAND,EquipmentSlot.OFFHAND};
+    public static EquipmentSlot[] MAIN_OFF = new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
 
     public IdiomEnchantment(EnchantmentCategory type, EquipmentSlot[] slots) {
-        super(Rarity.UNCOMMON,type, slots);
+        super(Rarity.UNCOMMON, type, slots);
     }
 }

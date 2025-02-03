@@ -18,7 +18,7 @@ public class RunOutOfIdeas extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(LivingEntity p_44686_, Entity p_44687_, int p_44688_) {
-        if(p_44688_>0){
+        if (p_44688_ > 0) {
             p_44686_.getItemInHand(p_44686_.getUsedItemHand()).setDamageValue(p_44686_.getItemInHand(p_44686_.getUsedItemHand()).getMaxDamage());
         }
     }

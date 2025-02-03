@@ -15,9 +15,9 @@ public class BellTheCat extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int level) {
-        if((p_44687_ instanceof LivingEntity target) && level>0){
+        if ((p_44687_ instanceof LivingEntity target) && level > 0) {
             target.heal((float) p_44686_.getAttributeValue(Attributes.ATTACK_DAMAGE));
-            p_44686_.hurt(p_44686_.damageSources().generic(),(float) p_44686_.getAttributeValue(Attributes.ATTACK_DAMAGE));
+            p_44686_.hurt(p_44686_.damageSources().generic(), (float) p_44686_.getAttributeValue(Attributes.ATTACK_DAMAGE));
         }
     }
 }

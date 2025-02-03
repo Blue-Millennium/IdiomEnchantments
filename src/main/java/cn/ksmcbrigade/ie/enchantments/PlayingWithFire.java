@@ -15,11 +15,10 @@ public class PlayingWithFire extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int p_44688_) {
-        if(p_44688_>0){
-            if(new SecureRandom().nextBoolean()){
+        if (p_44688_ > 0) {
+            if (new SecureRandom().nextBoolean()) {
                 p_44686_.setSecondsOnFire(10);
-            }
-            else{
+            } else {
                 p_44687_.setSecondsOnFire(10);
             }
         }

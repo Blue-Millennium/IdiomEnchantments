@@ -3,7 +3,7 @@ package cn.ksmcbrigade.ie.enchantments;
 import cn.ksmcbrigade.ie.enchantment.IdiomEnchantment;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player; // 导入 Player 类
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.phys.AABB;
@@ -27,7 +27,9 @@ public class KillAll extends Enchantment {
                     .filter(e -> e.getId() != p_44686_.getId())
                     .filter(e -> !(e instanceof Player)) // 排除玩家实体
                     .filter(e -> e.getType().equals(p_44687_.getType()))
-                    .forEach(entity -> { entity.hurt(p_44686_.damageSources().magic(), level * 12); });
+                    .forEach(entity -> {
+                        entity.hurt(p_44686_.damageSources().magic(), level * 12);
+                    });
         }
     }
 }

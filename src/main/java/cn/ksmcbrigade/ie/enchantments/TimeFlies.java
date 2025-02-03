@@ -15,11 +15,11 @@ public class TimeFlies extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int p_44688_) {
-        if(p_44688_>0){
+        if (p_44688_ > 0) {
             Vec3 pos = p_44686_.position();
             Vec3 pos2 = p_44687_.position();
-            p_44686_.teleportTo(pos2.x,pos2.y,pos2.z);
-            p_44687_.teleportTo(pos.x,pos.y,pos.z);
+            p_44686_.teleportTo(pos2.x, pos2.y, pos2.z);
+            p_44687_.teleportTo(pos.x, pos.y, pos.z);
         }
     }
 }

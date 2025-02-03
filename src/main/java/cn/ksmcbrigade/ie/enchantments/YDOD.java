@@ -18,8 +18,8 @@ public class YDOD extends IdiomEnchantment {
 
     @Override
     public void doPostAttack(@NotNull LivingEntity p_44686_, @NotNull Entity p_44687_, int p_44688_) {
-        if(p_44688_>0){
-            (random.nextBoolean()?p_44686_:p_44687_).kill();
+        if (p_44688_ > 0) {
+            (random.nextBoolean() ? p_44686_ : p_44687_).kill();
         }
     }
 }
